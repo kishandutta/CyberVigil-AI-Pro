@@ -705,14 +705,14 @@ function displayScanResults(data) {
 
       heuristicsTbody.innerHTML += `
         <tr class="border-b border-slate-800/60 hover:bg-slate-800/30 transition text-xs">
-          <td class="py-2.5 px-3 font-semibold text-cyan-300">${h.category}</td>
-          <td class="py-2.5 px-3 font-mono-code text-slate-200">${h.name}</td>
-          <td class="py-2.5 px-3">
+          <td class="py-2.5 px-2.5 sm:px-3 font-semibold text-cyan-300 whitespace-nowrap">${h.category}</td>
+          <td class="py-2.5 px-2.5 sm:px-3 font-mono-code text-slate-200 whitespace-nowrap">${h.name}</td>
+          <td class="py-2.5 px-2.5 sm:px-3 whitespace-nowrap">
             <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-[11px] font-bold border ${badgeClass}">
               <i class="fa-solid ${icon}"></i> ${h.status}
             </span>
           </td>
-          <td class="py-2.5 px-3 text-slate-400">${h.description}</td>
+          <td class="py-2.5 px-2.5 sm:px-3 text-slate-400 min-w-[200px]">${h.description}</td>
         </tr>
       `;
     });
@@ -982,21 +982,21 @@ function renderSessionHistory() {
     const reScanLink = item.targetType === 'url' ? `/dashboard?url=${encodeURIComponent(item.target)}` : '/dashboard';
 
     container.innerHTML += `
-      <div class="p-3.5 sm:p-4 bg-slate-900/60 border border-slate-800/80 rounded-xl hover:border-cyan-500/40 transition flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
-        <div class="flex items-center gap-3 overflow-hidden min-w-0">
+      <div class="p-3 sm:p-4 bg-slate-900/60 border border-slate-800/80 rounded-xl hover:border-cyan-500/40 transition flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
+        <div class="flex items-center gap-2.5 sm:gap-3 overflow-hidden min-w-0">
           <span class="p-2 sm:p-2.5 rounded-lg bg-slate-800 text-cyan-400 flex-shrink-0">
             <i class="fa-solid ${typeIcon}"></i>
           </span>
-          <div class="overflow-hidden min-w-0">
+          <div class="overflow-hidden min-w-0 flex-1">
             <p class="font-mono-code font-bold text-slate-100 truncate break-all max-w-full sm:max-w-md" title="${item.target}">${item.target}</p>
             <p class="text-[10px] sm:text-[11px] text-slate-500 truncate">Evaluated at ${item.timestamp} • Threat Index: <span class="font-bold text-slate-300">${item.threatScore}/100</span></p>
           </div>
         </div>
-        <div class="flex items-center justify-between sm:justify-end gap-2.5 w-full sm:w-auto pt-2 sm:pt-0 border-t border-slate-800/50 sm:border-0 flex-shrink-0">
+        <div class="flex items-center justify-between sm:justify-end gap-2 w-full sm:w-auto pt-2 sm:pt-0 border-t border-slate-800/50 sm:border-0 flex-shrink-0">
           <span class="px-2.5 py-1 rounded text-[10px] sm:text-[11px] font-bold border ${statusClass} flex items-center gap-1">
             <i class="fa-solid ${icon}"></i> <span>${item.status}</span>
           </span>
-          <a href="${reScanLink}" class="px-3.5 py-1.5 rounded-lg bg-slate-800 hover:bg-cyan-950 border border-slate-700 hover:border-cyan-400 text-slate-300 hover:text-cyan-300 text-xs transition flex items-center gap-1.5 min-h-[38px]" title="Re-evaluate target">
+          <a href="${reScanLink}" class="px-3 sm:px-3.5 py-1.5 rounded-lg bg-slate-800 hover:bg-cyan-950 border border-slate-700 hover:border-cyan-400 text-slate-300 hover:text-cyan-300 text-xs transition flex items-center gap-1.5 min-h-[38px]" title="Re-evaluate target">
             <i class="fa-solid fa-arrows-rotate text-[11px]"></i>
             <span>Re-Scan</span>
           </a>
