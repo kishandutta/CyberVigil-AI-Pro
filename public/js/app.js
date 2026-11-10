@@ -777,6 +777,25 @@ function setupReportDownloadButtons() {
   const pdfBtn = document.getElementById('download-pdf-btn');
   const jpgBtn = document.getElementById('download-jpg-btn');
 
+  // Helper to toggle action buttons visibility during report rendering
+  const setActionButtonsVisible = (visible) => {
+    const topBar = document.getElementById('results-top-action-bar');
+    const bottomBar = document.getElementById('results-bottom-action-bar');
+    const resetTopBtn = document.getElementById('reset-results-btn');
+    const resetBottomBtn = document.getElementById('reset-bottom-btn');
+    const copyBtns = document.querySelectorAll('#hashes-container button');
+
+    if (resetTopBtn) {
+      resetTopBtn.style.display = visible ? '' : 'none';
+    }
+    if (bottomBar) {
+      bottomBar.style.display = visible ? '' : 'none';
+    }
+    copyBtns.forEach(btn => {
+      btn.style.display = visible ? '' : 'none';
+    });
+  };
+
   pdfBtn?.addEventListener('click', async () => {
     AudioFX.click();
     const resultsCard = document.getElementById('scan-results-card');
@@ -790,12 +809,24 @@ function setupReportDownloadButtons() {
         return;
       }
 
+      // Hide all action and export buttons before rendering
+      setActionButtonsVisible(false);
+
       const canvas = await html2canvas(resultsCard, {
         backgroundColor: '#070d1d',
         scale: 2,
         useCORS: true,
-        logging: false
+        logging: false,
+        ignoreElements: (element) => {
+          return element.id === 'results-bottom-action-bar' ||
+                 element.id === 'reset-results-btn' ||
+                 element.id === 'reset-bottom-btn' ||
+                 (element.tagName === 'BUTTON' && element.closest('#hashes-container'));
+        }
       });
+
+      // Restore buttons immediately after canvas capture
+      setActionButtonsVisible(true);
 
       const imgData = canvas.toDataURL('image/png');
       const { jsPDF } = window.jspdf;
@@ -809,6 +840,7 @@ function setupReportDownloadButtons() {
 
       showToast('PDF Threat Report downloaded successfully!', 'success');
     } catch (err) {
+      setActionButtonsVisible(true);
       console.error('PDF export error:', err);
       showToast('Failed to export PDF: ' + err.message, 'error');
     }
@@ -827,12 +859,24 @@ function setupReportDownloadButtons() {
         return;
       }
 
+      // Hide all action and export buttons before rendering
+      setActionButtonsVisible(false);
+
       const canvas = await html2canvas(resultsCard, {
         backgroundColor: '#070d1d',
         scale: 2,
         useCORS: true,
-        logging: false
+        logging: false,
+        ignoreElements: (element) => {
+          return element.id === 'results-bottom-action-bar' ||
+                 element.id === 'reset-results-btn' ||
+                 element.id === 'reset-bottom-btn' ||
+                 (element.tagName === 'BUTTON' && element.closest('#hashes-container'));
+        }
       });
+
+      // Restore buttons immediately after canvas capture
+      setActionButtonsVisible(true);
 
       const jpgData = canvas.toDataURL('image/jpeg', 0.95);
       const downloadAnchor = document.createElement('a');
@@ -844,6 +888,7 @@ function setupReportDownloadButtons() {
 
       showToast('JPG Threat Report downloaded successfully!', 'success');
     } catch (err) {
+      setActionButtonsVisible(true);
       console.error('JPG export error:', err);
       showToast('Failed to export JPG: ' + err.message, 'error');
     }
