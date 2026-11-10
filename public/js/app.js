@@ -264,9 +264,6 @@ function setupAudioToggle() {
     if (state.audioEnabled) {
       AudioFX.init();
       AudioFX.cleanChime();
-      showToast('Threat Audio Alerts: ACTIVE', 'success');
-    } else {
-      showToast('Threat Audio Alerts: MUTED', 'info');
     }
   });
 }
