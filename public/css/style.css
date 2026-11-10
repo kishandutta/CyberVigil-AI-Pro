@@ -294,3 +294,26 @@ html, body {
   }
 }
 
+/* Security Threat Report Clean Export Styles */
+.exporting-report #results-top-action-bar,
+.exporting-report #results-bottom-action-bar,
+.exporting-report #reset-results-btn,
+.exporting-report #reset-bottom-btn,
+.exporting-report #hashes-container button {
+  display: none !important;
+}
+
+@media print {
+  header, footer, nav, #scanner-section, #academy-guidelines,
+  #results-top-action-bar, #results-bottom-action-bar,
+  #reset-results-btn, #reset-bottom-btn, #hashes-container button {
+    display: none !important;
+  }
+  #scan-results-card {
+    border: none !important;
+    box-shadow: none !important;
+    background: #030712 !important;
+  }
+}
+
+

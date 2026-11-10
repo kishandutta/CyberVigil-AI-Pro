@@ -79,7 +79,7 @@
               <span class="font-cyber font-black text-sm sm:text-lg tracking-wider text-white">CYBER<span class="text-cyan-400 text-glow-cyan">VIGIL</span> AI</span>
               <span class="px-1.5 py-0.5 rounded text-[9px] font-cyber font-bold bg-cyan-500/20 text-cyan-300 border border-cyan-500/40">PRO</span>
             </div>
-            <p class="text-[9px] sm:text-[10px] font-mono-code text-slate-400 tracking-tight hidden md:block">Threat Intelligence & Payload Sandbox</p>
+            <p class="text-[9px] sm:text-[10px] font-mono-code text-slate-400 tracking-tight hidden md:block">Threat Intelligence & Scanner</p>
           </div>
         </a>
       </div>
@@ -177,7 +177,7 @@
             <i class="fa-solid fa-link text-xs"></i> <span>URL Scanner</span>
           </button>
           <button id="tab-file" class="px-3 sm:px-4 py-2 sm:py-1.5 rounded-lg text-xs font-cyber font-bold tracking-wider transition-all flex items-center justify-center gap-1.5 sm:gap-2 text-slate-400 border border-transparent hover:text-slate-200 min-h-[40px]">
-            <i class="fa-solid fa-file-code text-xs"></i> <span>File Payload</span>
+            <i class="fa-solid fa-file-shield text-xs"></i> <span>File Scanner</span>
           </button>
         </div>
       </div>
@@ -196,7 +196,7 @@
                 type="text" 
                 id="url-input" 
                 placeholder="Paste your suspicious link..." 
-                class="w-full pl-10 sm:pl-11 pr-12 py-3.5 sm:py-4 rounded-xl bg-cyber-950/90 border border-slate-700 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 text-slate-100 placeholder-slate-500 text-xs sm:text-sm font-mono-code transition-all"
+                class="w-full pl-10 sm:pl-11 pr-12 py-3.5 sm:py-4 rounded-xl bg-cyber-950/90 border border-slate-700 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 text-slate-100 placeholder-slate-500 text-xs sm:text-sm font-mono-code transition-all" 
                 autocomplete="off"
               >
               <!-- Dedicated, non-overlapping clear button on far right of input -->
@@ -237,7 +237,7 @@
         </form>
       </div>
 
-      <!-- TAB 2: FILE / PAYLOAD ANALYZER SECTION -->
+      <!-- TAB 2: FILE SCANNER SECTION -->
       <div id="section-file" class="mt-5 sm:mt-6 space-y-4 sm:space-y-5 hidden">
         
         <!-- Drag & Drop Zone -->
@@ -247,8 +247,8 @@
               <i class="fa-solid fa-cloud-arrow-up"></i>
             </div>
             <div>
-              <p class="font-cyber font-bold text-xs sm:text-base text-slate-100">Drag & drop suspicious payload or document here</p>
-              <p class="text-[11px] sm:text-xs text-slate-400 font-mono-code mt-1 px-2">Supports Scripts (.bat, .ps1, .vbs), Binaries (.exe, .dll), Docs (.docx, .pdf), or Archives (.zip)</p>
+              <p class="font-cyber font-bold text-xs sm:text-base text-slate-100">Drag & drop your file or document here to scan</p>
+              <p class="text-[11px] sm:text-xs text-slate-400 font-mono-code mt-1 px-2">Supports Images (.png, .jpg), Docs (.pdf, .docx, .txt), Scripts (.bat, .ps1), Binaries (.exe, .dll), or Archives (.zip)</p>
             </div>
             <div>
               <label for="file-input" class="inline-flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-lg bg-cyber-900 border border-cyan-500/40 hover:border-cyan-400 text-cyan-300 text-xs font-bold cursor-pointer transition shadow min-h-[42px]">
@@ -277,7 +277,7 @@
               <i class="fa-solid fa-trash-can"></i>
             </button>
             <button id="submit-file-btn" class="btn-cyber-primary flex-1 sm:flex-initial px-4 sm:px-5 py-2 sm:py-2.5 rounded-lg text-xs flex items-center justify-center gap-2 min-h-[40px]">
-              <span>Analyze Payload</span>
+              <span>Scan File</span>
               <i class="fa-solid fa-bolt"></i>
             </button>
           </div>

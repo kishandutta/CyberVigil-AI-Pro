@@ -323,7 +323,7 @@ function setupUrlScanner() {
   });
 }
 
-// File Payload Analyzer Logic
+// File Scanner Logic
 function setupFileScanner() {
   const dropZone = document.getElementById('file-dropzone');
   const fileInput = document.getElementById('file-input');
@@ -408,7 +408,7 @@ VirtualAlloc CreateRemoteThread
     const formData = new FormData();
     formData.append('payload', state.selectedFile);
 
-    startScanningAnimation('Analyzing File Payload', `Inspecting binary byte stream of ${state.selectedFile.name}`);
+    startScanningAnimation('Scanning File', `Inspecting binary byte stream of ${state.selectedFile.name}`);
     AudioFX.scanChirp();
 
     try {
@@ -779,6 +779,15 @@ function setupReportDownloadButtons() {
 
   // Helper to toggle action buttons visibility during report rendering
   const setActionButtonsVisible = (visible) => {
+    const resultsCard = document.getElementById('scan-results-card');
+    if (resultsCard) {
+      if (visible) {
+        resultsCard.classList.remove('exporting-report');
+      } else {
+        resultsCard.classList.add('exporting-report');
+      }
+    }
+
     const topBar = document.getElementById('results-top-action-bar');
     const bottomBar = document.getElementById('results-bottom-action-bar');
     const resetTopBtn = document.getElementById('reset-results-btn');
