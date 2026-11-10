@@ -501,8 +501,67 @@
 
     </div>
 
-    <!-- 2. DEDICATED INTERACTIVE HUB CARDS (Direct Links to Dedicated Advanced Pages) -->
-    <div class="space-y-4">
+    <!-- 2. PASSWORD STRENGTH CHECKER (SECOND MAIN FEATURE) -->
+    <div id="password-checker-section" class="cyber-card rounded-xl sm:rounded-2xl p-4 sm:p-7 md:p-8 space-y-4 sm:space-y-6 border-glow-cyan">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-cyan-950/80 border border-cyan-500/40 flex items-center justify-center text-cyan-400 text-lg flex-shrink-0">
+            <i class="fa-solid fa-shield-halved"></i>
+          </div>
+          <div>
+            <h3 class="font-cyber font-bold text-base sm:text-lg text-white">Password Strength Checker</h3>
+            <p class="text-xs text-slate-400 font-mono-code mt-0.5">Type any password to check its quality...</p>
+          </div>
+        </div>
+        <span class="text-[10px] sm:text-[11px] font-mono-code text-cyan-300 bg-cyan-950/60 border border-cyan-800/80 px-3 py-1 rounded-full self-start sm:self-auto flex items-center gap-1.5 flex-shrink-0">
+          <i class="fa-solid fa-lock text-[10px]"></i> Client-Side Only • 100% Private
+        </span>
+      </div>
+
+      <div class="space-y-4">
+        <!-- Password Input with Show/Hide Toggle -->
+        <div class="relative">
+          <input 
+            type="password" 
+            id="pwd-input" 
+            placeholder="Type any password to check its quality..."
+            class="w-full pl-4 pr-12 py-3.5 sm:py-4 rounded-xl bg-cyber-950 border border-slate-700 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 text-slate-100 placeholder-slate-500 text-xs sm:text-sm font-mono-code transition-all"
+            autocomplete="off"
+          >
+          <button 
+            type="button" 
+            id="pwd-toggle-visibility"
+            class="absolute inset-y-0 right-0 pr-4 flex items-center text-slate-500 hover:text-cyan-400 transition"
+            title="Toggle visibility"
+          >
+            <i class="fa-regular fa-eye text-sm"></i>
+          </button>
+        </div>
+
+        <!-- Dynamic Real-Time Progress Bar & Quality Indicator -->
+        <div class="space-y-2">
+          <div class="w-full bg-slate-900 rounded-full h-3 overflow-hidden border border-slate-800 p-0.5">
+            <div id="pwd-strength-bar" class="h-full rounded-full bg-slate-700 transition-all duration-300" style="width: 0%"></div>
+          </div>
+          
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pt-1">
+            <div class="flex items-center gap-2">
+              <span class="text-xs text-slate-400">Password Quality:</span>
+              <span id="pwd-strength-text" class="text-xs font-bold text-slate-500">Awaiting your password...</span>
+            </div>
+            <div id="pwd-checklist" class="flex flex-wrap items-center gap-1.5 sm:gap-2 text-[10px] sm:text-[11px] font-mono-code text-slate-500">
+              <span id="chk-len" class="px-2 py-0.5 rounded bg-slate-900 border border-slate-800 transition">8+ letters</span>
+              <span id="chk-mix" class="px-2 py-0.5 rounded bg-slate-900 border border-slate-800 transition">Upper & lower</span>
+              <span id="chk-num" class="px-2 py-0.5 rounded bg-slate-900 border border-slate-800 transition">Numbers</span>
+              <span id="chk-sym" class="px-2 py-0.5 rounded bg-slate-900 border border-slate-800 transition">Symbols</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. ADVANCED SECURITY MODULES & TOOLS (AT THE VERY BOTTOM) -->
+    <div id="advanced-modules-section" class="space-y-4">
       <div class="flex items-center justify-between">
         <h2 class="font-cyber font-bold text-xs sm:text-sm text-slate-300 uppercase tracking-wider flex items-center gap-2">
           <i class="fa-solid fa-cubes text-cyan-400"></i> ADVANCED SECURITY MODULES & TOOLS
@@ -564,163 +623,6 @@
         </div>
 
       </div>
-    </div>
-
-    <!-- 3. DEFENSIVE INTELLIGENCE SECURITY ACADEMY (Interactive Guidelines Section on Dashboard) -->
-    <div id="academy-guidelines" class="space-y-6 sm:space-y-8 pt-6 sm:pt-8 border-t border-slate-800">
-      
-      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-        <div>
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-950/60 border border-purple-500/40 text-purple-300 text-xs font-mono-code mb-2">
-            <i class="fa-solid fa-shield-halved"></i> PREVENTION GUIDELINES
-          </div>
-          <h2 class="font-cyber font-bold text-lg sm:text-xl text-white">Cyber Safety Rules & Tips</h2>
-        </div>
-        <a href="/security-academy" class="text-xs font-mono-code text-cyan-400 hover:underline flex items-center gap-1.5 self-start sm:self-auto min-h-[36px]">
-          <span>Open Full Dedicated Academy Page</span>
-          <i class="fa-solid fa-arrow-up-right-from-square"></i>
-        </a>
-      </div>
-
-      <!-- Educational 3 Core Cards (Responsive Grid - Simple Non-Technical Language) -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-        
-        <!-- Module 1: Phishing Link Anatomy -->
-        <div class="cyber-card rounded-xl sm:rounded-2xl p-4 sm:p-6 space-y-3.5 hover:border-cyan-400/50 transition">
-          <div class="w-10 h-10 rounded-xl bg-cyan-950/80 border border-cyan-500/30 flex items-center justify-center text-cyan-400 text-lg">
-            <i class="fa-solid fa-link-slash"></i>
-          </div>
-          <h3 class="font-cyber font-bold text-sm text-white">How to Identify Phishing Links</h3>
-          <p class="text-xs text-slate-300 leading-relaxed">
-            Fake links try to trick you into entering passwords or card numbers. Here is how you can spot them in seconds:
-          </p>
-          <ul class="space-y-2.5 text-xs text-slate-300">
-            <li class="flex items-start gap-2">
-              <i class="fa-solid fa-circle-check text-cyan-400 mt-0.5 flex-shrink-0"></i>
-              <span><b>Watch for Misspelled Brand Names:</b> Scammers slightly modify letters in well-known sites, like writing <code class="text-red-400">goolge.com</code> or <code class="text-red-400">fl1pkart.com</code>.</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <i class="fa-solid fa-circle-check text-cyan-400 mt-0.5 flex-shrink-0"></i>
-              <span><b>Look at the Real Ending Name:</b> In links like <code class="text-red-400 break-all">login.paypal-support.com</code>, the actual website is <code class="text-red-400">paypal-support.com</code>, NOT official PayPal.</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <i class="fa-solid fa-circle-check text-cyan-400 mt-0.5 flex-shrink-0"></i>
-              <span><b>Never Trust Shortened Mystery Links:</b> If an unknown sender sends links starting with <code class="text-amber-400">bit.ly</code> or <code class="text-amber-400">tinyurl</code>, scan it here first before clicking.</span>
-            </li>
-          </ul>
-        </div>
-
-        <!-- Module 2: Common Email & Message Scams -->
-        <div class="cyber-card rounded-xl sm:rounded-2xl p-4 sm:p-6 space-y-3.5 hover:border-amber-400/50 transition">
-          <div class="w-10 h-10 rounded-xl bg-amber-950/80 border border-amber-500/30 flex items-center justify-center text-amber-400 text-lg">
-            <i class="fa-solid fa-envelope-open-text"></i>
-          </div>
-          <h3 class="font-cyber font-bold text-sm text-white">Common Email & Message Scams</h3>
-          <p class="text-xs text-slate-300 leading-relaxed">
-            Scammers pretend to be banks, government officials, or delivery companies to make you panic. Watch for these signs:
-          </p>
-          <ul class="space-y-2.5 text-xs text-slate-300">
-            <li class="flex items-start gap-2">
-              <i class="fa-solid fa-triangle-exclamation text-amber-400 mt-0.5 flex-shrink-0"></i>
-              <span><b>Fake Threats & False Urgency:</b> Any message saying "Your account will be suspended within 24 hours unless you click" is almost always a scam.</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <i class="fa-solid fa-triangle-exclamation text-amber-400 mt-0.5 flex-shrink-0"></i>
-              <span><b>Fake Lottery & Prize Offers:</b> Messages claiming you won a cash reward, free gift card, or smartphone for a contest you never entered are 100% fake.</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <i class="fa-solid fa-triangle-exclamation text-amber-400 mt-0.5 flex-shrink-0"></i>
-              <span><b>Dangerous File Attachments:</b> Never download unknown files ending in <code class="text-red-400">.exe</code>, <code class="text-red-400">.bat</code>, or disguised as fake bills and invoices.</span>
-            </li>
-          </ul>
-        </div>
-
-        <!-- Module 3: Password Safety Rules -->
-        <div class="cyber-card rounded-xl sm:rounded-2xl p-4 sm:p-6 space-y-3.5 hover:border-emerald-400/50 transition sm:col-span-2 lg:col-span-1">
-          <div class="w-10 h-10 rounded-xl bg-emerald-950/80 border border-emerald-500/30 flex items-center justify-center text-emerald-400 text-lg">
-            <i class="fa-solid fa-key"></i>
-          </div>
-          <h3 class="font-cyber font-bold text-sm text-white">Password Safety Rules</h3>
-          <p class="text-xs text-slate-300 leading-relaxed">
-            A strong password keeps your emails, photos, and money safe from hackers. Follow these three simple habits:
-          </p>
-          <ul class="space-y-2.5 text-xs text-slate-300">
-            <li class="flex items-start gap-2">
-              <i class="fa-solid fa-shield-check text-emerald-400 mt-0.5 flex-shrink-0"></i>
-              <span><b>Combine 3 to 4 Everyday Words:</b> A passphrase like <code class="text-emerald-400">coffee-blue-happy-guitar</code> is much easier to remember and nearly impossible for hackers to guess.</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <i class="fa-solid fa-shield-check text-emerald-400 mt-0.5 flex-shrink-0"></i>
-              <span><b>Never Reuse the Same Password:</b> Keep separate passwords for your bank, social media, and primary email accounts.</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <i class="fa-solid fa-shield-check text-emerald-400 mt-0.5 flex-shrink-0"></i>
-              <span><b>Turn on 2-Step Verification (OTP):</b> Enable phone OTP or authenticator apps so no one can log in even if they know your password.</span>
-            </li>
-          </ul>
-        </div>
-
-      </div>
-
-      <!-- Password Strength Checker (Clean & User-Friendly) -->
-      <div class="cyber-card rounded-xl sm:rounded-2xl p-4 sm:p-7 md:p-8 space-y-4 sm:space-y-6 border-glow-cyan">
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-xl bg-cyan-950/80 border border-cyan-500/40 flex items-center justify-center text-cyan-400 text-lg flex-shrink-0">
-              <i class="fa-solid fa-shield-halved"></i>
-            </div>
-            <div>
-              <h3 class="font-cyber font-bold text-base sm:text-lg text-white">Password Strength Checker</h3>
-              <p class="text-xs text-slate-400 font-mono-code mt-0.5">Type any password to check its quality...</p>
-            </div>
-          </div>
-          <span class="text-[10px] sm:text-[11px] font-mono-code text-cyan-300 bg-cyan-950/60 border border-cyan-800/80 px-3 py-1 rounded-full self-start sm:self-auto flex items-center gap-1.5 flex-shrink-0">
-            <i class="fa-solid fa-lock text-[10px]"></i> Client-Side Only • 100% Private
-          </span>
-        </div>
-
-        <div class="space-y-4">
-          <!-- Password Input with Show/Hide Toggle -->
-          <div class="relative">
-            <input 
-              type="password" 
-              id="pwd-input" 
-              placeholder="Type any password to check its quality..."
-              class="w-full pl-4 pr-12 py-3.5 sm:py-4 rounded-xl bg-cyber-950 border border-slate-700 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 text-slate-100 placeholder-slate-500 text-xs sm:text-sm font-mono-code transition-all"
-              autocomplete="off"
-            >
-            <button 
-              type="button" 
-              id="pwd-toggle-visibility"
-              class="absolute inset-y-0 right-0 pr-4 flex items-center text-slate-500 hover:text-cyan-400 transition"
-              title="Toggle visibility"
-            >
-              <i class="fa-regular fa-eye text-sm"></i>
-            </button>
-          </div>
-
-          <!-- Dynamic Real-Time Progress Bar & Quality Indicator -->
-          <div class="space-y-2">
-            <div class="w-full bg-slate-900 rounded-full h-3 overflow-hidden border border-slate-800 p-0.5">
-              <div id="pwd-strength-bar" class="h-full rounded-full bg-slate-700 transition-all duration-300" style="width: 0%"></div>
-            </div>
-            
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pt-1">
-              <div class="flex items-center gap-2">
-                <span class="text-xs text-slate-400">Password Quality:</span>
-                <span id="pwd-strength-text" class="text-xs font-bold text-slate-500">Awaiting your password...</span>
-              </div>
-              <div id="pwd-checklist" class="flex flex-wrap items-center gap-1.5 sm:gap-2 text-[10px] sm:text-[11px] font-mono-code text-slate-500">
-                <span id="chk-len" class="px-2 py-0.5 rounded bg-slate-900 border border-slate-800 transition">8+ letters</span>
-                <span id="chk-mix" class="px-2 py-0.5 rounded bg-slate-900 border border-slate-800 transition">Upper & lower</span>
-                <span id="chk-num" class="px-2 py-0.5 rounded bg-slate-900 border border-slate-800 transition">Numbers</span>
-                <span id="chk-sym" class="px-2 py-0.5 rounded bg-slate-900 border border-slate-800 transition">Symbols</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
     </div>
 
   </main>

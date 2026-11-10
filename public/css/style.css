@@ -327,7 +327,7 @@ html, body {
 }
 
 @media print {
-  header, footer, nav, #scanner-section, #academy-guidelines,
+  header, footer, nav, #scanner-section, #password-checker-section, #advanced-modules-section, #academy-guidelines,
   #results-top-action-bar, #results-bottom-action-bar,
   #reset-results-btn, #reset-bottom-btn, #hashes-container button {
     display: none !important;
